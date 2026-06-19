@@ -84,7 +84,7 @@ export default function Stats() {
   return (
     <section className="relative py-28 px-6">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-500/[0.03] via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-transparent to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -93,7 +93,7 @@ export default function Stats() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
           >
             Proven Results
           </motion.span>
@@ -102,10 +102,10 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             Numbers That{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Speak
             </span>
           </motion.h2>
@@ -120,15 +120,15 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group p-8 rounded-2xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 text-center"
+              className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-purple-300 transition-all duration-500 text-center shadow-sm"
             >
-              <div className="text-4xl md:text-5xl font-bold text-purple-400 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-purple-600 group-hover:scale-110 transition-transform duration-300">
                 <AnimatedCounter
                   target={stat.value}
                   suffix={stat.suffix}
                 />
               </div>
-              <h3 className="mt-3 text-lg font-semibold text-white">
+              <h3 className="mt-3 text-lg font-semibold text-gray-900">
                 {stat.label}
               </h3>
               <p className="mt-2 text-sm text-gray-500">{stat.description}</p>

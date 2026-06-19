@@ -76,7 +76,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+              className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
             >
               Our Work
             </motion.span>
@@ -85,10 +85,10 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
+              className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
             >
               Featured{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Projects
               </span>
             </motion.h2>
@@ -112,7 +112,7 @@ export default function Portfolio() {
               key={i}
               className="portfolio-card w-[85vw] md:w-[600px] lg:w-[700px] shrink-0"
             >
-              <div className="group h-full p-8 md:p-10 rounded-3xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 flex flex-col">
+              <div className="group h-full p-8 md:p-10 rounded-3xl border border-gray-200 bg-white hover:border-purple-300 transition-all duration-500 flex flex-col shadow-sm">
                 {/* Category badge */}
                 <div className="flex items-center justify-between mb-6">
                   <span
@@ -133,29 +133,29 @@ export default function Portfolio() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900">
                   {project.title}
                 </h3>
-                <p className="mt-3 text-gray-400 text-sm leading-relaxed flex-grow">
+                <p className="mt-3 text-gray-500 text-sm leading-relaxed flex-grow">
                   {project.description}
                 </p>
 
                 {/* Stats */}
-                <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-white/5">
+                <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
                   <div>
-                    <div className="text-lg font-bold text-purple-400">
+                    <div className="text-lg font-bold text-purple-600">
                       {project.stats.panels}
                     </div>
                     <div className="text-xs text-gray-500">Capacity</div>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-purple-400">
+                    <div className="text-lg font-bold text-purple-600">
                       {project.stats.production}
                     </div>
                     <div className="text-xs text-gray-500">Output</div>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-purple-400">
+                    <div className="text-lg font-bold text-purple-600">
                       {project.stats.savings}
                     </div>
                     <div className="text-xs text-gray-500">Delivery</div>

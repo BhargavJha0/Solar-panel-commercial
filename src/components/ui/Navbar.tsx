@@ -29,7 +29,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0F0A1F]/90 backdrop-blur-xl border-b border-white/[0.08]"
+          ? "bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm"
           : ""
       }`}
     >
@@ -41,7 +41,7 @@ export default function Navbar() {
             alt="Aarbitech Energy"
             width={220}
             height={60}
-            className="h-12 md:h-14 w-auto object-contain brightness-110"
+            className="h-12 md:h-14 w-auto object-contain"
             priority
           />
         </a>
@@ -52,7 +52,7 @@ export default function Navbar() {
             <motion.a
               key={link.name}
               href={link.href}
-              className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-medium"
+              className="text-gray-600 hover:text-purple-700 transition-colors text-sm font-medium"
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="#contact"
-            className="text-sm text-gray-300 hover:text-white transition-colors"
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             Sign In
           </a>
@@ -80,20 +80,20 @@ export default function Navbar() {
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white p-2"
+          className="lg:hidden text-gray-800 p-2"
         >
           <div className="space-y-1.5">
             <motion.div
               animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="w-6 h-0.5 bg-white"
+              className="w-6 h-0.5 bg-gray-800"
             />
             <motion.div
               animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="w-6 h-0.5 bg-white"
+              className="w-6 h-0.5 bg-gray-800"
             />
             <motion.div
               animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="w-6 h-0.5 bg-white"
+              className="w-6 h-0.5 bg-gray-800"
             />
           </div>
         </button>
@@ -106,14 +106,14 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-[#0F0A1F]/95 backdrop-blur-xl border-t border-white/[0.08]"
+            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200"
           >
             <div className="p-6 space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-gray-300 hover:text-purple-400 transition-colors text-lg"
+                  className="block text-gray-600 hover:text-purple-700 transition-colors text-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

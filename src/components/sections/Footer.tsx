@@ -33,9 +33,9 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative pt-20 pb-8 px-6 border-t border-white/5">
+    <footer className="relative pt-20 pb-8 px-6 border-t border-gray-200 bg-[#1A0A3E]">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#020408] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0F0622] to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Main footer */}
@@ -48,7 +48,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-2 mb-4"
             >
-              <div className="w-10 h-10 rounded-lg bg-purple-700 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 40 40" fill="none">
                   <path d="M20 4 L30 34 L24 34 L20 22 L16 34 L10 34 Z" fill="currentColor"/>
                   <rect x="15" y="24" width="10" height="3" fill="#5B2FC9"/>

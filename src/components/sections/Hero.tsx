@@ -81,27 +81,27 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-[#1A0A3E] via-[#2D1B69] to-[#1A0A3E]"
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="float-element absolute top-20 left-10 w-[500px] h-[500px] bg-purple-600/8 rounded-full blur-[120px]" />
-        <div className="float-element absolute bottom-20 right-10 w-[400px] h-[400px] bg-indigo-600/8 rounded-full blur-[100px]" />
-        <div className="float-element absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px]" />
+        <div className="float-element absolute top-20 left-10 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" />
+        <div className="float-element absolute bottom-20 right-10 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px]" />
+        <div className="float-element absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-400/5 rounded-full blur-[150px]" />
       </div>
 
       {/* Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(91,47,201,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(91,47,201,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
 
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         {/* Badge */}
         <div ref={badgeRef}>
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/20 bg-purple-500/5 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 mb-8"
             whileHover={{ scale: 1.05 }}
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm text-purple-200/80">
+            <span className="text-sm text-white/80">
               All Systems Engineered — Monitoring Work Across 18 States
             </span>
           </motion.div>
@@ -113,11 +113,11 @@ export default function Hero() {
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1]"
         >
           Engineering Built to Keep{" "}
-          <span className="bg-gradient-to-r from-purple-400 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-300 via-purple-200 to-indigo-300 bg-clip-text text-transparent">
             Energy Infrastructure
           </span>
           <br />
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-300 font-medium">
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white/70 font-medium">
             Online.
           </span>
         </h1>
@@ -125,13 +125,13 @@ export default function Hero() {
         {/* Subtitle */}
         <p
           ref={subtitleRef}
-          className="mt-8 text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+          className="mt-8 text-base md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
         >
           Aarbitech Energy delivers structural, process, and compliance
           engineering for utilities, EPCs, and developers — designed for{" "}
-          <span className="text-purple-400 font-semibold">uptime</span>, not just
+          <span className="text-white font-semibold">uptime</span>, not just
           approval. Projects delivered on{" "}
-          <span className="text-purple-400 font-semibold">stamped schedule</span>.
+          <span className="text-white font-semibold">stamped schedule</span>.
         </p>
 
         {/* CTA */}
@@ -143,7 +143,7 @@ export default function Hero() {
               boxShadow: "0 20px 40px rgba(91,47,201,0.3)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-purple-700 text-white font-semibold rounded-lg text-lg shadow-lg shadow-purple-500/20 hover:bg-purple-800 transition-all"
+            className="px-8 py-4 bg-white text-purple-700 font-semibold rounded-lg text-lg shadow-lg shadow-white/20 hover:bg-gray-100 transition-all"
           >
             Request a Consultation →
           </motion.a>
@@ -151,7 +151,7 @@ export default function Hero() {
             href="#services"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border border-white/[0.08] text-white font-semibold rounded-lg text-lg hover:border-purple-500/50 hover:bg-purple-500/5 transition-all"
+            className="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg text-lg hover:border-white/60 hover:bg-white/10 transition-all"
           >
             Download Capability Statement
           </motion.a>
@@ -169,10 +169,10 @@ export default function Hero() {
             { value: "96%", label: "Project Readiness" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-purple-400">
+              <div className="text-2xl md:text-3xl font-bold text-white">
                 {stat.value}
               </div>
-              <div className="text-xs md:text-sm text-gray-500 mt-1">
+              <div className="text-xs md:text-sm text-white/60 mt-1">
                 {stat.label}
               </div>
             </div>

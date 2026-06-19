@@ -89,7 +89,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
           >
             Our Approach
           </motion.span>
@@ -98,10 +98,10 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             From Scope to{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Completion
             </span>
           </motion.h2>
@@ -110,7 +110,7 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg"
+            className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg"
           >
             A streamlined 5-step process that takes your energy project from
             initial scope to construction support — on time, every time.
@@ -140,15 +140,15 @@ export default function Process() {
                   }`}
                 >
                   <div
-                    className={`p-8 rounded-2xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 ${
+                    className={`p-8 rounded-2xl border border-gray-200 bg-white hover:border-purple-300 transition-all duration-500 shadow-sm ${
                       i % 2 === 0 ? "md:mr-8" : "md:ml-8"
                     }`}
                   >
                     <span className="text-3xl">{step.icon}</span>
-                    <h3 className="mt-3 text-xl font-bold text-white">
+                    <h3 className="mt-3 text-xl font-bold text-gray-900">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-gray-400 text-sm leading-relaxed">
+                    <p className="mt-2 text-gray-500 text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>

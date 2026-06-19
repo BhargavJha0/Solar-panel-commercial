@@ -69,7 +69,7 @@ export default function Clients() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
           >
             Who We Serve
           </motion.span>
@@ -78,10 +78,10 @@ export default function Clients() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             Built for{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Energy Professionals
             </span>
           </motion.h2>
@@ -90,7 +90,7 @@ export default function Clients() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg"
+            className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg"
           >
             Whether you manage 5 MW or 500 MW — our engineering platform and process
             scale with you.
@@ -106,13 +106,13 @@ export default function Clients() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group p-6 rounded-2xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 hover:bg-[#221840] transition-all duration-400"
+              className="group p-6 rounded-2xl border border-gray-200 bg-white hover:border-purple-300 hover:bg-purple-50/50 transition-all duration-400 shadow-sm"
             >
               <span className="text-3xl">{client.icon}</span>
-              <h3 className="mt-3 text-base font-semibold text-white group-hover:text-purple-100 transition-colors">
+              <h3 className="mt-3 text-base font-semibold text-gray-900 group-hover:text-purple-700 transition-colors">
                 {client.title}
               </h3>
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-sm text-gray-500">
                 {client.description}
               </p>
             </motion.div>
@@ -144,7 +144,7 @@ export default function Clients() {
               ].map((country, i) => (
                 <span
                   key={i}
-                  className="text-lg text-gray-400 font-medium"
+                  className="text-lg text-gray-600 font-medium"
                 >
                   {country}
                 </span>

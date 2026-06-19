@@ -90,7 +90,7 @@ export default function Services() {
   return (
     <section id="services" className="relative py-28 px-6">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Section header */}
@@ -99,7 +99,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
           >
             Our Capabilities
           </motion.span>
@@ -108,10 +108,10 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             Complete Engineering{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Solutions
             </span>
           </motion.h2>
@@ -120,7 +120,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="mt-4 text-gray-400 max-w-2xl mx-auto text-lg"
+            className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg"
           >
             From structural design to final compliance — we handle every stage of
             energy engineering so you can focus on building and operations.
@@ -139,7 +139,7 @@ export default function Services() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`group relative p-8 rounded-2xl border ${service.borderColor} bg-[#1A1230] hover:bg-[#221840] transition-all duration-500 overflow-hidden`}
+              className={`group relative p-8 rounded-2xl border ${service.borderColor} bg-white hover:bg-purple-50/50 transition-all duration-500 overflow-hidden shadow-sm`}
             >
               {/* Hover gradient */}
               <div
@@ -148,10 +148,10 @@ export default function Services() {
 
               <div className="relative z-10">
                 <span className="text-4xl">{service.icon}</span>
-                <h3 className="mt-4 text-xl font-bold text-white group-hover:text-purple-100 transition-colors">
+                <h3 className="mt-4 text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-gray-400 text-sm leading-relaxed">
+                <p className="mt-3 text-gray-500 text-sm leading-relaxed">
                   {service.description}
                 </p>
 
@@ -160,7 +160,7 @@ export default function Services() {
                   {service.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300 border border-white/5"
+                      className="text-xs px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-100"
                     >
                       {feature}
                     </span>
@@ -187,9 +187,9 @@ export default function Services() {
           ].map((item, i) => (
             <div
               key={i}
-              className="p-4 rounded-xl border border-white/5 bg-white/[0.02] text-center hover:border-purple-500/20 hover:bg-purple-500/5 transition-all duration-300"
+              className="p-4 rounded-xl border border-gray-200 bg-gray-50 text-center hover:border-purple-300 hover:bg-purple-50 transition-all duration-300"
             >
-              <span className="text-sm text-gray-300">{item}</span>
+              <span className="text-sm text-gray-600">{item}</span>
             </div>
           ))}
         </motion.div>

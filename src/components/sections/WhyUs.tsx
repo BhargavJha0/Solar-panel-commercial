@@ -75,7 +75,7 @@ export default function WhyUs() {
   return (
     <section className="relative py-28 px-6 overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-500/[0.03] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-100/50 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -85,7 +85,7 @@ export default function WhyUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
+              className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
             >
               Why Choose Us
             </motion.span>
@@ -94,10 +94,10 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white max-w-2xl"
+              className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 max-w-2xl"
             >
               Your Engineering{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Advantage
               </span>
             </motion.h2>
@@ -107,7 +107,7 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 max-w-md text-lg"
+            className="text-gray-500 max-w-md text-lg"
           >
             Choosing the right engineering partner directly impacts how fast
             projects move from design to construction.
@@ -115,7 +115,7 @@ export default function WhyUs() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-3xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-3xl overflow-hidden">
           {reasons.map((reason, i) => (
             <motion.div
               key={i}
@@ -123,23 +123,23 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="group relative p-8 bg-[#0F0A1F] hover:bg-[#1A1230] transition-all duration-500"
+              className="group relative p-8 bg-white hover:bg-purple-50/50 transition-all duration-500"
             >
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
+              <div className="text-purple-600 group-hover:text-purple-700 transition-colors">
                 {reason.icon}
               </div>
 
-              <h3 className="mt-5 text-lg font-bold text-white">
+              <h3 className="mt-5 text-lg font-bold text-gray-900">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm text-gray-400 leading-relaxed">
+              <p className="mt-3 text-sm text-gray-500 leading-relaxed">
                 {reason.description}
               </p>
 
               <div className="mt-6 flex items-baseline gap-2">
-                <span className="text-2xl font-bold text-purple-400">
+                <span className="text-2xl font-bold text-purple-600">
                   {reason.metric}
                 </span>
                 <span className="text-xs text-gray-500 uppercase tracking-wider">
