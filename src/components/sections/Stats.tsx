@@ -84,7 +84,7 @@ export default function Stats() {
   return (
     <section className="relative py-28 px-6">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/[0.03] via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-500/[0.03] via-transparent to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -93,7 +93,7 @@ export default function Stats() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-blue-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
           >
             Proven Results
           </motion.span>
@@ -105,7 +105,7 @@ export default function Stats() {
             className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
           >
             Numbers That{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               Speak
             </span>
           </motion.h2>
@@ -120,9 +120,9 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group p-8 rounded-2xl border border-white/5 bg-[#161B22] hover:border-blue-500/20 transition-all duration-500 text-center"
+              className="group p-8 rounded-2xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold text-blue-400 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-purple-400 group-hover:scale-110 transition-transform duration-300">
                 <AnimatedCounter
                   target={stat.value}
                   suffix={stat.suffix}

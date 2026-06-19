@@ -68,7 +68,7 @@ export default function Testimonials() {
     <section id="testimonials" className="relative py-28 px-6 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/[0.04] rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/[0.04] rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
@@ -78,7 +78,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-blue-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
           >
             Testimonials
           </motion.span>
@@ -90,7 +90,7 @@ export default function Testimonials() {
             className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
           >
             Trusted by{" "}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               Industry Leaders
             </span>
           </motion.h2>
@@ -109,7 +109,7 @@ export default function Testimonials() {
             >
               {/* Quote */}
               <div className="relative">
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-blue-500/20 font-serif">
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-purple-500/20 font-serif">
                   &ldquo;
                 </span>
                 <p className="text-xl md:text-2xl lg:text-3xl text-white/90 leading-relaxed font-light italic">
@@ -120,7 +120,7 @@ export default function Testimonials() {
               {/* Author */}
               <div className="mt-10 flex flex-col items-center gap-2">
                 {/* Avatar placeholder */}
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white font-bold text-lg">
                   {testimonials[active].name.charAt(0)}
                 </div>
                 <div>
@@ -137,7 +137,7 @@ export default function Testimonials() {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <svg
                       key={i}
-                      className="w-4 h-4 text-blue-400"
+                      className="w-4 h-4 text-purple-400"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -158,7 +158,7 @@ export default function Testimonials() {
               onClick={() => setActive(i)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 i === active
-                  ? "bg-blue-500 scale-125"
+                  ? "bg-purple-500 scale-125"
                   : "bg-white/10 hover:bg-white/30"
               }`}
             />

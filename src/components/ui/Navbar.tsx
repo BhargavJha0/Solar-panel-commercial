@@ -29,7 +29,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0D1117]/90 backdrop-blur-xl border-b border-white/[0.08]"
+          ? "bg-[#0F0A1F]/90 backdrop-blur-xl border-b border-white/[0.08]"
           : ""
       }`}
     >
@@ -52,7 +52,7 @@ export default function Navbar() {
             <motion.a
               key={link.name}
               href={link.href}
-              className="text-gray-300 hover:text-blue-400 transition-colors text-sm font-medium"
+              className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-medium"
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -73,7 +73,7 @@ export default function Navbar() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+            className="px-6 py-2.5 bg-purple-700 text-white text-sm font-semibold rounded-lg hover:bg-purple-800 hover:shadow-lg hover:shadow-purple-500/25 transition-all"
           >
             Request a Consultation
           </motion.a>
@@ -106,14 +106,14 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-[#0D1117]/95 backdrop-blur-xl border-t border-white/[0.08]"
+            className="lg:hidden overflow-hidden bg-[#0F0A1F]/95 backdrop-blur-xl border-t border-white/[0.08]"
           >
             <div className="p-6 space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-gray-300 hover:text-blue-400 transition-colors text-lg"
+                  className="block text-gray-300 hover:text-purple-400 transition-colors text-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -121,7 +121,7 @@ export default function Navbar() {
               ))}
               <a
                 href="#contact"
-                className="block mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg text-center hover:bg-blue-700 transition-colors"
+                className="block mt-4 px-6 py-3 bg-purple-700 text-white font-semibold rounded-lg text-center hover:bg-purple-800 transition-colors"
               >
                 Get a Quote
               </a>

@@ -89,7 +89,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-blue-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
           >
             Our Approach
           </motion.span>
@@ -101,7 +101,7 @@ export default function Process() {
             className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
           >
             From Scope to{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               Completion
             </span>
           </motion.h2>
@@ -121,7 +121,7 @@ export default function Process() {
         <div className="relative">
           {/* Center line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block">
-            <div className="timeline-line w-full h-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-500/20" />
+            <div className="timeline-line w-full h-full bg-gradient-to-b from-purple-500 via-indigo-600 to-purple-500/20" />
           </div>
 
           {/* Steps */}
@@ -140,7 +140,7 @@ export default function Process() {
                   }`}
                 >
                   <div
-                    className={`p-8 rounded-2xl border border-white/5 bg-[#161B22] hover:border-blue-500/20 transition-all duration-500 ${
+                    className={`p-8 rounded-2xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 ${
                       i % 2 === 0 ? "md:mr-8" : "md:ml-8"
                     }`}
                   >
@@ -155,7 +155,7 @@ export default function Process() {
                 </div>
 
                 {/* Center dot */}
-                <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0">
+                <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
                   <span className="text-white font-bold text-sm">
                     {step.number}
                   </span>

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0D1117;
+  --background: #0F0A1F;
   --foreground: #F4F6F8;
-  --primary: #2F7DE0;
-  --primary-dark: #2569C2;
-  --accent: #3DDC84;
-  --surface: #161B22;
-  --surface-light: #1f2937;
-  --mist: #8B96A5;
+  --primary: #5B2FC9;
+  --primary-dark: #4A1FB3;
+  --accent: #7C3AED;
+  --surface: #1A1230;
+  --surface-light: #2D1F5E;
+  --mist: #9B8FC4;
 }
 
 @theme inline {
@@ -41,7 +41,7 @@ body {
 }
 
 ::selection {
-  background: rgba(47, 125, 224, 0.3);
+  background: rgba(91, 47, 201, 0.3);
   color: #fff;
 }
 

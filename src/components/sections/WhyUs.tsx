@@ -75,7 +75,7 @@ export default function WhyUs() {
   return (
     <section className="relative py-28 px-6 overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500/[0.03] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-500/[0.03] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -85,7 +85,7 @@ export default function WhyUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-sm uppercase tracking-[0.3em] text-blue-400 font-medium"
+              className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
             >
               Why Choose Us
             </motion.span>
@@ -97,7 +97,7 @@ export default function WhyUs() {
               className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white max-w-2xl"
             >
               Your Engineering{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
                 Advantage
               </span>
             </motion.h2>
@@ -123,11 +123,11 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="group relative p-8 bg-[#0D1117] hover:bg-[#161B22] transition-all duration-500"
+              className="group relative p-8 bg-[#0F0A1F] hover:bg-[#1A1230] transition-all duration-500"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
+              <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
                 {reason.icon}
               </div>
 
@@ -139,7 +139,7 @@ export default function WhyUs() {
               </p>
 
               <div className="mt-6 flex items-baseline gap-2">
-                <span className="text-2xl font-bold text-blue-400">
+                <span className="text-2xl font-bold text-purple-400">
                   {reason.metric}
                 </span>
                 <span className="text-xs text-gray-500 uppercase tracking-wider">

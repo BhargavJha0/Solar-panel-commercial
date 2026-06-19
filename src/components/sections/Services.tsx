@@ -10,18 +10,18 @@ const services = [
     description:
       "Foundation, support structure, and civil design for substations, racking, and process facilities. Built for uptime.",
     features: ["Foundation Design", "Support Structures", "Civil Works"],
-    gradient: "from-blue-500/20 to-blue-600/20",
-    borderColor: "border-blue-500/20",
+    gradient: "from-purple-500/20 to-indigo-500/20",
+    borderColor: "border-purple-500/20",
     delay: 0,
   },
   {
-    icon: "⚙️",
+    icon: "\u2699\uFE0F",
     title: "Process & Mechanical Design",
     description:
       "P&IDs, equipment sizing, and mechanical systems for power and process facilities with full compliance.",
     features: ["P&ID Development", "Equipment Sizing", "Mechanical Systems"],
-    gradient: "from-cyan-500/20 to-blue-500/20",
-    borderColor: "border-cyan-500/20",
+    gradient: "from-indigo-500/20 to-purple-500/20",
+    borderColor: "border-indigo-500/20",
     delay: 0.1,
   },
   {
@@ -40,8 +40,8 @@ const services = [
     description:
       "Stamped drawing packages and regulatory submittals across state and federal jurisdictions. First-time approvals.",
     features: ["Stamped Drawings", "Regulatory Submittals", "Code Compliance"],
-    gradient: "from-indigo-500/20 to-purple-500/20",
-    borderColor: "border-indigo-500/20",
+    gradient: "from-violet-500/20 to-purple-500/20",
+    borderColor: "border-violet-500/20",
     delay: 0.3,
   },
   {
@@ -50,8 +50,8 @@ const services = [
     description:
       "Power systems engineering, utility interconnection applications, and grid-tie solutions for energy projects.",
     features: ["Power Systems", "Grid Integration", "Utility Applications"],
-    gradient: "from-amber-500/20 to-yellow-500/20",
-    borderColor: "border-amber-500/20",
+    gradient: "from-purple-500/20 to-fuchsia-500/20",
+    borderColor: "border-purple-500/20",
     delay: 0.4,
   },
   {
@@ -90,7 +90,7 @@ export default function Services() {
   return (
     <section id="services" className="relative py-28 px-6">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/[0.02] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/[0.02] to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Section header */}
@@ -99,7 +99,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-blue-400 font-medium"
+            className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
           >
             Our Capabilities
           </motion.span>
@@ -111,7 +111,7 @@ export default function Services() {
             className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
           >
             Complete Engineering{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               Solutions
             </span>
           </motion.h2>
@@ -139,7 +139,7 @@ export default function Services() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`group relative p-8 rounded-2xl border ${service.borderColor} bg-[#161B22] hover:bg-[#1c2230] transition-all duration-500 overflow-hidden`}
+              className={`group relative p-8 rounded-2xl border ${service.borderColor} bg-[#1A1230] hover:bg-[#221840] transition-all duration-500 overflow-hidden`}
             >
               {/* Hover gradient */}
               <div
@@ -148,7 +148,7 @@ export default function Services() {
 
               <div className="relative z-10">
                 <span className="text-4xl">{service.icon}</span>
-                <h3 className="mt-4 text-xl font-bold text-white group-hover:text-blue-100 transition-colors">
+                <h3 className="mt-4 text-xl font-bold text-white group-hover:text-purple-100 transition-colors">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-gray-400 text-sm leading-relaxed">
@@ -187,7 +187,7 @@ export default function Services() {
           ].map((item, i) => (
             <div
               key={i}
-              className="p-4 rounded-xl border border-white/5 bg-white/[0.02] text-center hover:border-blue-500/20 hover:bg-blue-500/5 transition-all duration-300"
+              className="p-4 rounded-xl border border-white/5 bg-white/[0.02] text-center hover:border-purple-500/20 hover:bg-purple-500/5 transition-all duration-300"
             >
               <span className="text-sm text-gray-300">{item}</span>
             </div>

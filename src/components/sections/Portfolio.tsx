@@ -15,7 +15,7 @@ const projects = [
     location: "Houston, TX",
     description: "Full structural and civil engineering for utility substation upgrade including foundation design and steel detailing.",
     stats: { panels: "115kV", production: "240 MW", savings: "14 weeks" },
-    gradient: "from-blue-500 to-blue-700",
+    gradient: "from-purple-500 to-indigo-700",
   },
   {
     category: "Solar Farm",
@@ -23,7 +23,7 @@ const projects = [
     location: "Phoenix, AZ",
     description: "Racking structural design, civil grading, and interconnection engineering for large-scale photovoltaic installation.",
     stats: { panels: "80 MW", production: "156,000 MWh/yr", savings: "10 weeks" },
-    gradient: "from-cyan-500 to-blue-500",
+    gradient: "from-indigo-500 to-purple-500",
   },
   {
     category: "Wind",
@@ -76,7 +76,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-sm uppercase tracking-[0.3em] text-amber-400 font-medium"
+              className="text-sm uppercase tracking-[0.3em] text-purple-400 font-medium"
             >
               Our Work
             </motion.span>
@@ -88,7 +88,7 @@ export default function Portfolio() {
               className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-white"
             >
               Featured{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
                 Projects
               </span>
             </motion.h2>
@@ -112,7 +112,7 @@ export default function Portfolio() {
               key={i}
               className="portfolio-card w-[85vw] md:w-[600px] lg:w-[700px] shrink-0"
             >
-              <div className="group h-full p-8 md:p-10 rounded-3xl border border-white/5 bg-[#161B22] hover:border-blue-500/20 transition-all duration-500 flex flex-col">
+              <div className="group h-full p-8 md:p-10 rounded-3xl border border-white/5 bg-[#1A1230] hover:border-purple-500/20 transition-all duration-500 flex flex-col">
                 {/* Category badge */}
                 <div className="flex items-center justify-between mb-6">
                   <span
@@ -143,19 +143,19 @@ export default function Portfolio() {
                 {/* Stats */}
                 <div className="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-white/5">
                   <div>
-                    <div className="text-lg font-bold text-blue-400">
+                    <div className="text-lg font-bold text-purple-400">
                       {project.stats.panels}
                     </div>
                     <div className="text-xs text-gray-500">Capacity</div>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-blue-400">
+                    <div className="text-lg font-bold text-purple-400">
                       {project.stats.production}
                     </div>
                     <div className="text-xs text-gray-500">Output</div>
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-blue-400">
+                    <div className="text-lg font-bold text-purple-400">
                       {project.stats.savings}
                     </div>
                     <div className="text-xs text-gray-500">Delivery</div>

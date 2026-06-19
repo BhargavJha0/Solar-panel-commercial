@@ -48,14 +48,14 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-2 mb-4"
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-purple-700 flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 40 40" fill="none">
                   <path d="M20 4 L30 34 L24 34 L20 22 L16 34 L10 34 Z" fill="currentColor"/>
-                  <rect x="15" y="24" width="10" height="3" fill="#2F7DE0"/>
+                  <rect x="15" y="24" width="10" height="3" fill="#5B2FC9"/>
                 </svg>
               </div>
               <span className="text-xl font-bold text-white">
-                Aarbitech<span className="text-blue-400"> Energy</span>
+                Aarbitech<span className="text-purple-400"> Energy</span>
               </span>
             </motion.div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -77,7 +77,7 @@ export default function Footer() {
                 <a
                   key={social}
                   href="#"
-                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-500/30 transition-all"
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-500/30 transition-all"
                 >
                   <span className="text-xs font-medium">
                     {social.charAt(0)}
@@ -97,7 +97,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -116,7 +116,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -135,7 +135,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </a>
