@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
 export const runtime = "nodejs";
 
@@ -22,6 +23,70 @@ function sanitizeHeaderValue(value: string) {
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function shouldRetry(error?: { code?: string; responseCode?: number }) {
+  const retryableCodes = new Set([
+    "ETIMEDOUT",
+    "ESOCKET",
+    "ECONNECTION",
+    "EAI_AGAIN",
+    "ECONNRESET",
+    "ENOTFOUND",
+  ]);
+
+  if (error?.code && retryableCodes.has(error.code)) return true;
+  if (typeof error?.responseCode === "number" && error.responseCode >= 500) return true;
+
+  return false;
+}
+
+async function sendWithRetry(
+  transporter: nodemailer.Transporter<SMTPTransport.SentMessageInfo>,
+  mail: nodemailer.SendMailOptions,
+  maxAttempts = 2
+) {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await transporter.sendMail(mail);
+    } catch (err) {
+      lastError = err;
+      const typedErr = err as { code?: string; responseCode?: number };
+      if (attempt >= maxAttempts || !shouldRetry(typedErr)) {
+        throw err;
+      }
+    }
+  }
+
+  throw lastError;
+}
+
+function buildTransport(
+  host: string,
+  user: string,
+  pass: string,
+  port?: string,
+  secure?: string
+) {
+  const smtpPort = Number(port) || 587;
+  const smtpSecure =
+    secure?.toLowerCase() === "true" ||
+    (secure == null && smtpPort === 465);
+
+  return nodemailer.createTransport({
+    host,
+    port: smtpPort,
+    secure: smtpSecure,
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
+    auth: {
+      user,
+      pass,
+    },
+  });
 }
 
 function buildEmailHtml(data: {
@@ -195,25 +260,15 @@ export async function POST(req: NextRequest) {
     }
 
     const toEmail = consultationType === "sales" ? SALES_EMAIL : INFO_EMAIL;
-    const smtpPort = Number(process.env.SMTP_PORT) || 587;
-    const smtpSecure =
-      process.env.SMTP_SECURE?.toLowerCase() === "true" ||
-      (process.env.SMTP_SECURE == null && smtpPort === 465);
+    const primaryTransporter = buildTransport(
+      process.env.SMTP_HOST!,
+      process.env.SMTP_USER!,
+      process.env.SMTP_PASS!,
+      process.env.SMTP_PORT,
+      process.env.SMTP_SECURE
+    );
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: smtpPort,
-      secure: smtpSecure,
-      connectionTimeout: 15000,
-      greetingTimeout: 15000,
-      socketTimeout: 20000,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
+    const mailOptions: nodemailer.SendMailOptions = {
       from: `"Aarbitech Energy Website" <${process.env.SMTP_USER}>`,
       to: toEmail,
       replyTo: sanitizeHeaderValue(String(email)),
@@ -227,7 +282,37 @@ export async function POST(req: NextRequest) {
         message: String(message).trim(),
         consultationType,
       }),
-    });
+    };
+
+    try {
+      await sendWithRetry(primaryTransporter, mailOptions, 2);
+    } catch (primaryErr) {
+      const backupHost = process.env.SMTP_BACKUP_HOST?.trim();
+      const backupUser = process.env.SMTP_BACKUP_USER?.trim();
+      const backupPass = process.env.SMTP_BACKUP_PASS?.trim();
+
+      if (!backupHost || !backupUser || !backupPass) {
+        throw primaryErr;
+      }
+
+      console.warn("[contact API] Primary SMTP failed, trying backup SMTP");
+      const backupTransporter = buildTransport(
+        backupHost,
+        backupUser,
+        backupPass,
+        process.env.SMTP_BACKUP_PORT,
+        process.env.SMTP_BACKUP_SECURE
+      );
+
+      await sendWithRetry(
+        backupTransporter,
+        {
+          ...mailOptions,
+          from: `"Aarbitech Energy Website" <${backupUser}>`,
+        },
+        2
+      );
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
