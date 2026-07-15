@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -6,50 +6,18 @@ import { useState, useEffect } from "react";
 const testimonials = [
   {
     quote:
-      "We were juggling three different engineering firms for our substation projects. Aarbitech consolidated everything — structural, process, permitting — under one roof. Project timelines dropped by 40%.",
-    name: "Mark Sullivan",
-    role: "VP Engineering",
-    company: "GridPoint Energy",
+      "Aarbitech Energy has been our trusted solar design partner for the past three years. Their technical expertise, quick turnaround times, and deep understanding of EPC requirements have played an important role in the successful execution of our solar projects.",
+    name: "Divya Srivastava",
+    role: "Director",
+    company: "Rinova Solar Power Pvt. Ltd.",
     rating: 5,
   },
   {
     quote:
-      "Their on-schedule delivery commitment is real. We’ve tested it across 12 projects spanning four states. Every single one delivered on the stamped timeline.",
-    name: "Rachel Torres",
-    role: "Director of Operations",
-    company: "Apex Power Solutions",
-    rating: 5,
-  },
-  {
-    quote:
-      "Aarbitech’s structural engineering for our 80MW solar farm was exceptional. Foundation designs accounted for site-specific geotechnical conditions we hadn’t even flagged.",
-    name: "David Kim",
-    role: "Project Manager",
-    company: "SunRise Developments",
-    rating: 5,
-  },
-  {
-    quote:
-      "We operate across six states with different regulatory requirements. Their permitting team handles jurisdiction-specific compliance before we even have to ask.",
-    name: "Neil Thompson",
-    role: "Director of Engineering",
-    company: "National Energy Corp",
-    rating: 5,
-  },
-  {
-    quote:
-      "The control-room approach to project management means we always know exactly where things stand. Real-time visibility into every engineering deliverable.",
-    name: "Sarah Mitchell",
-    role: "CEO",
-    company: "Meridian Power Group",
-    rating: 5,
-  },
-  {
-    quote:
-      "We looked at building an in-house engineering team. The cost and expertise gap made Aarbitech the obvious choice. Saved us $500K+ in the first year alone.",
-    name: "James Park",
-    role: "CFO",
-    company: "Pinnacle Energy",
+      "Aarbitech Energy has been an invaluable engineering partner in the successful execution of our solar projects. Their team provided exceptional design support for our 315 kW rooftop ballast solar project and 205 kW rooftop superstructure installation, delivering accurate, optimized, and code-compliant engineering solutions. In addition to project design, Aarbitech also supported us as a technical design consultant and tender reviewer for our Agartala and Kundli solar projects. Their attention to detail, technical expertise, and thorough review process helped us make informed decisions and ensure project feasibility from both engineering and commercial perspectives. We appreciate their professionalism, responsiveness, and commitment to quality. We highly recommend Aarbitech Energy to any EPC company seeking reliable solar design and engineering consultancy services.",
+    name: "Mr. Kamra",
+    role: "Head of Department",
+    company: "DS Group",
     rating: 5,
   },
 ];
@@ -68,7 +36,7 @@ export default function Testimonials() {
     <section id="testimonials" className="relative py-28 px-6 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-100/50 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
@@ -78,7 +46,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
+            className="text-xl md:text-2xl uppercase tracking-[0.3em] text-blue-600 font-bold"
           >
             Testimonials
           </motion.span>
@@ -87,11 +55,11 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
+            className="mt-4 text-xl md:text-2xl lg:text-3xl font-bold text-gray-900"
           >
-            Trusted by{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Industry Leaders
+            Trusted by Our{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+              Clients
             </span>
           </motion.h2>
         </div>
@@ -109,18 +77,17 @@ export default function Testimonials() {
             >
               {/* Quote */}
               <div className="relative">
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-purple-200 font-serif">
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-6xl text-blue-200 font-serif">
                   &ldquo;
                 </span>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed font-light italic">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-light italic">
                   {testimonials[active].quote}
                 </p>
               </div>
 
               {/* Author */}
               <div className="mt-10 flex flex-col items-center gap-2">
-                {/* Avatar placeholder */}
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-bold text-lg">
                   {testimonials[active].name.charAt(0)}
                 </div>
                 <div>
@@ -128,7 +95,7 @@ export default function Testimonials() {
                     {testimonials[active].name}
                   </p>
                   <p className="text-sm text-gray-500">
-                    {testimonials[active].role} •{" "}
+                    {testimonials[active].role} &bull;{" "}
                     {testimonials[active].company}
                   </p>
                 </div>
@@ -137,7 +104,7 @@ export default function Testimonials() {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <svg
                       key={i}
-                      className="w-4 h-4 text-purple-500"
+                      className="w-4 h-4 text-blue-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -158,8 +125,8 @@ export default function Testimonials() {
               onClick={() => setActive(i)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 i === active
-                  ? "bg-purple-500 scale-125"
-                  : "bg-white/10 hover:bg-white/30"
+                  ? "bg-blue-500 scale-125"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
@@ -174,10 +141,10 @@ export default function Testimonials() {
           className="mt-16 pt-12 border-t border-gray-200"
         >
           <p className="text-center text-xs text-gray-400 uppercase tracking-widest mb-6">
-            Trusted by companies across the USA
+            Trusted by companies across India, USA, Australia &amp; Ireland
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-40">
-            {["GridPoint", "Apex Power", "SunRise Dev", "National Energy", "Meridian Power", "Pinnacle"].map(
+            {["Rinova Solar Power", "DS Group", "GD Goenka School", "Country Delight", "Indo Nuclear Energy", "Bloom Healthcare"].map(
               (name, i) => (
                 <span key={i} className="text-sm md:text-base font-semibold text-gray-400">
                   {name}

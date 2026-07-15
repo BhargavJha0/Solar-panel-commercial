@@ -11,38 +11,45 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
   {
     number: "01",
-    title: "Project Scoping",
+    title: "Project Scooping",
     description:
-      "Send us your site data, timeline, and engineering requirements. We assess scope and confirm capability fit within two business days.",
+      "Send us your project details, site information, and design requirements. Our team reviews your needs and understands the project scope before getting started.",
     icon: "📤",
   },
   {
     number: "02",
     title: "Engineering & Design",
     description:
-      "Our licensed engineers develop structural, process, and electrical designs with full code compliance and stamped drawings.",
+      "Our experienced engineers create optimized solar layouts, electrical designs, structural calculations, and energy simulations using industry-leading software to ensure maximum system performance.",
     icon: "✏️",
   },
   {
     number: "03",
-    title: "Review & QC",
+    title: "Compliance & Documentation",
     description:
-      "Multi-layer quality verification against jurisdiction requirements, safety codes, and industry standards before delivery.",
-    icon: "🔍",
-  },
-  {
-    number: "04",
-    title: "Permitting & Submittals",
-    description:
-      "Stamped drawing packages submitted to regulatory bodies. We handle revisions and follow-up through full approval.",
+      "We prepare complete permit-ready drawing packages that comply with local authority, utility, and engineering standards, helping reduce approval delays.",
     icon: "📋",
   },
   {
-    number: "05",
-    title: "Construction Support",
+    number: "04",
+    title: "Quality Check",
     description:
-      "Ongoing engineering support during construction with field coordination, RFIs, and as-built documentation.",
-    icon: "✅",
+      "Every drawing and calculation is thoroughly reviewed by our engineering team to ensure accuracy, safety, and compliance before delivery.",
+    icon: "🔍",
+  },
+  {
+    number: "05",
+    title: "Delivery",
+    description:
+      "We deliver your complete engineering package within the agreed timeline, ready for permit submission or construction.",
+    icon: "🚀",
+  },
+  {
+    number: "06",
+    title: "Ongoing Support",
+    description:
+      "Need revisions or technical assistance? Our team remains available to support you throughout the approval and installation process until your project is successfully completed.",
+    icon: "🤝",
   },
 ];
 
@@ -89,7 +96,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
+            className="text-xl md:text-2xl uppercase tracking-[0.3em] text-blue-600 font-bold"
           >
             Our Approach
           </motion.span>
@@ -98,11 +105,11 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
+            className="mt-4 text-xl md:text-2xl lg:text-3xl font-bold text-gray-900"
           >
-            From Scope to{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Completion
+            From Your Idea to a{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+              Successful Solar Project
             </span>
           </motion.h2>
           <motion.p
@@ -110,10 +117,9 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg"
+            className="mt-4 text-gray-500 max-w-2xl mx-auto text-sm"
           >
-            A streamlined 5-step process that takes your energy project from
-            initial scope to construction support — on time, every time.
+            At Aarbitech Energy, we make the engineering process simple, efficient, and hassle-free. We work closely with EPC companies, solar installers, and developers to deliver accurate designs, faster approvals, and reliable engineering support at every stage of the project.
           </motion.p>
         </div>
 
@@ -121,7 +127,7 @@ export default function Process() {
         <div className="relative">
           {/* Center line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block">
-            <div className="timeline-line w-full h-full bg-gradient-to-b from-purple-500 via-indigo-600 to-purple-500/20" />
+            <div className="timeline-line w-full h-full bg-gradient-to-b from-blue-500 via-blue-600 to-blue-500/20" />
           </div>
 
           {/* Steps */}
@@ -140,7 +146,7 @@ export default function Process() {
                   }`}
                 >
                   <div
-                    className={`p-8 rounded-2xl border border-gray-200 bg-white hover:border-purple-300 transition-all duration-500 shadow-sm ${
+                    className={`p-8 rounded-2xl border border-gray-200 bg-white hover:border-blue-300 transition-all duration-500 shadow-sm ${
                       i % 2 === 0 ? "md:mr-8" : "md:ml-8"
                     }`}
                   >
@@ -155,7 +161,7 @@ export default function Process() {
                 </div>
 
                 {/* Center dot */}
-                <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
+                <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0">
                   <span className="text-white font-bold text-sm">
                     {step.number}
                   </span>

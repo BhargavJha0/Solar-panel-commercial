@@ -34,14 +34,14 @@ export default function CTA() {
         <div className="cta-content relative rounded-[2rem] overflow-hidden">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#1A0A3E] via-[#2D1B69] to-[#1A0A3E]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-500/10" />
 
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
           {/* Animated orbs */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-purple-400/10 rounded-full blur-[60px] animate-pulse" />
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-indigo-400/10 rounded-full blur-[80px] animate-pulse" />
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400/10 rounded-full blur-[60px] animate-pulse" />
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-400/10 rounded-full blur-[80px] animate-pulse" />
 
           {/* Content */}
           <div className="relative z-10 p-10 md:p-16 lg:p-20 text-center">
@@ -60,7 +60,7 @@ export default function CTA() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Ready to Scope Your
               <br />
-              <span className="bg-gradient-to-r from-purple-300 via-purple-200 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300 bg-clip-text text-transparent">
                 Next Project?
               </span>
             </h2>
@@ -79,7 +79,7 @@ export default function CTA() {
                   boxShadow: "0 25px 50px rgba(91,47,201,0.4)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-white text-purple-700 font-bold rounded-lg text-lg shadow-xl shadow-white/20 hover:bg-gray-100 transition-all"
+                className="px-10 py-5 bg-white text-blue-700 font-bold rounded-lg text-lg shadow-xl shadow-white/20 hover:bg-gray-100 transition-all"
               >
                 Request a Consultation →
               </motion.a>

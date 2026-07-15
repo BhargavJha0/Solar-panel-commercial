@@ -43,40 +43,29 @@ function AnimatedCounter({
 
 const stats = [
   {
-    value: 240,
+    value: 1000,
     suffix: "+",
-    label: "Projects Engineered",
-    description: "Structural, process, and compliance engineering delivered",
+    label: "Projects Delivered",
+    description: "Successfully completed residential, commercial, and industrial solar engineering projects delivering accurate designs, permit packages, and structural solutions for EPC companies.",
   },
   {
-    value: 100,
-    suffix: "%",
-    label: "On-Schedule Delivery",
-    description: "Every project delivered on stamped schedule without exception",
+    value: 200,
+    suffix: "+ MW",
+    label: "Solar Capacity Designed",
+    description: "Designed and engineered more than 200 MW of solar PV systems, helping clients maximize energy production, optimize project performance, and achieve successful installations.",
   },
   {
-    value: 18,
+    value: 4,
     suffix: "",
-    label: "States with Active Work",
-    description: "Active engineering operations across the United States",
+    label: "Countries Served",
+    description: "Supporting solar developers and EPC companies across India, the United States, Australia and Ireland with engineering solutions tailored to local codes and utility requirements.",
   },
   {
-    value: 842,
-    suffix: " MW",
-    label: "Grid Load Managed",
-    description: "Total capacity of sites with active engineering support",
-  },
-  {
-    value: 50,
-    suffix: "+",
-    label: "Licensed Engineers",
-    description: "Professional engineers with deep energy sector expertise",
-  },
-  {
-    value: 96,
-    suffix: "%",
-    label: "Project Readiness",
-    description: "Average project readiness score across active portfolio",
+    value: 48,
+    suffix: " Hrs",
+    prefix: "24–",
+    label: "Fast Turnaround Time",
+    description: "Efficient workflows and a dedicated engineering team enable us to deliver standard solar designs and permit packages within 24 to 48 hours, helping clients keep projects on schedule.",
   },
 ];
 
@@ -84,7 +73,7 @@ export default function Stats() {
   return (
     <section className="relative py-28 px-6">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-transparent to-transparent" />
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -93,7 +82,7 @@ export default function Stats() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm uppercase tracking-[0.3em] text-purple-600 font-medium"
+            className="text-xl md:text-2xl uppercase tracking-[0.3em] text-blue-600 font-bold"
           >
             Proven Results
           </motion.span>
@@ -102,17 +91,17 @@ export default function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900"
+            className="mt-4 text-xl md:text-2xl lg:text-3xl font-bold text-gray-900"
           >
-            Numbers That{" "}
-            <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Speak
+            Engineering Excellence{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-blue-600 bg-clip-text text-transparent">
+              Backed by Experience
             </span>
           </motion.h2>
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -120,9 +109,10 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-purple-300 transition-all duration-500 text-center shadow-sm"
+              className="group p-8 rounded-2xl border border-gray-200 bg-white hover:border-blue-300 transition-all duration-500 text-center shadow-sm"
             >
-              <div className="text-4xl md:text-5xl font-bold text-purple-600 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                {stat.prefix && <span>{stat.prefix}</span>}
                 <AnimatedCounter
                   target={stat.value}
                   suffix={stat.suffix}

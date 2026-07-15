@@ -142,7 +142,7 @@ const doc = new Document({
         new Table({
           rows: [
             createTableRow(["#", "Service Name", "Keep? (Yes/No/Edit)", "Your Description"], true),
-            createTableRow(["1", "Solar Sales Proposals", "", ""]),
+            createTableRow(["1", "Solar Services", "", ""]),
             createTableRow(["2", "Permit Plan Sets", "", ""]),
             createTableRow(["3", "PE Stamping", "", ""]),
             createTableRow(["4", "Solar Permitting", "", ""]),

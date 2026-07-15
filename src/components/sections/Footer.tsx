@@ -48,14 +48,14 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-2 mb-4"
             >
-              <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 40 40" fill="none">
                   <path d="M20 4 L30 34 L24 34 L20 22 L16 34 L10 34 Z" fill="currentColor"/>
                   <rect x="15" y="24" width="10" height="3" fill="#5B2FC9"/>
                 </svg>
               </div>
               <span className="text-xl font-bold text-white">
-                Aarbitech<span className="text-purple-400"> Energy</span>
+                Aarbitech<span className="text-blue-400"> Energy</span>
               </span>
             </motion.div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -65,10 +65,11 @@ export default function Footer() {
             </p>
 
             {/* Contact info */}
-            <div className="mt-6 space-y-2 text-sm text-gray-500">
-              <p>📧 contact@aarbitechenergy.com</p>
-              <p>📞 +1 (555) 123-4567</p>
-              <p>📍 Houston, TX, USA</p>
+            <div className="mt-6 space-y-2 text-sm text-gray-400">
+              <p>📞 <a href="tel:+919310575389" className="hover:text-blue-400 transition-colors">+91-9310575389</a></p>
+              <p>📞 <a href="tel:+917408254142" className="hover:text-blue-400 transition-colors">+91-7408254142</a></p>
+              <p>📧 <a href="mailto:info@aarbitechenergy.com" className="hover:text-blue-400 transition-colors">info@aarbitechenergy.com</a></p>
+              <p>📧 <a href="mailto:sales@aarbitechenergy.com" className="hover:text-blue-400 transition-colors">sales@aarbitechenergy.com</a></p>
             </div>
 
             {/* Social links */}
@@ -77,7 +78,7 @@ export default function Footer() {
                 <a
                   key={social}
                   href="#"
-                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-500/30 transition-all"
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-blue-400 hover:border-blue-500/30 transition-all"
                 >
                   <span className="text-xs font-medium">
                     {social.charAt(0)}
@@ -97,7 +98,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -116,7 +117,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -135,7 +136,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {link.name}
                   </a>

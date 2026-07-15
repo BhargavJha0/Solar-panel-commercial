@@ -1,9 +1,12 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
+import bgImage from "../../../assets/head-background.jpg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,44 +84,43 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-[#1A0A3E] via-[#2D1B69] to-[#1A0A3E]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32"
     >
+      {/* Background Image */}
+      <Image
+        src={bgImage}
+        alt="Hero background"
+        fill
+        priority
+        className="object-cover object-center"
+        style={{ zIndex: 0 }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
+
       {/* Background */}
-      <div className="absolute inset-0">
-        <div className="float-element absolute top-20 left-10 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" />
-        <div className="float-element absolute bottom-20 right-10 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px]" />
-        <div className="float-element absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-400/5 rounded-full blur-[150px]" />
+      <div className="absolute inset-0" style={{ zIndex: 2 }}>
+        <div className="float-element absolute top-20 left-10 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+        <div className="float-element absolute bottom-20 right-10 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px]" />
+        <div className="float-element absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-400/5 rounded-full blur-[150px]" />
       </div>
 
       {/* Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" style={{ zIndex: 3 }} />
 
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        {/* Badge */}
-        <div ref={badgeRef}>
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 mb-8"
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-sm text-white/80">
-              All Systems Engineered — Monitoring Work Across 18 States
-            </span>
-          </motion.div>
-        </div>
-
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto" style={{ zIndex: 10 }}>
         {/* Headline */}
         <h1
           ref={titleRef}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.1]"
         >
-          Engineering Built to Keep{" "}
-          <span className="bg-gradient-to-r from-purple-300 via-purple-200 to-indigo-300 bg-clip-text text-transparent">
-            Energy Infrastructure
+          Engineering Excellence for{" "}
+          <span className="bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300 bg-clip-text text-transparent">
+            Solar Projects
           </span>
           <br />
           <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white/70 font-medium">
-            Online.
+            Worldwide.
           </span>
         </h1>
 
@@ -127,26 +129,27 @@ export default function Hero() {
           ref={subtitleRef}
           className="mt-8 text-base md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
         >
-          Aarbitech Energy delivers structural, process, and compliance
-          engineering for utilities, EPCs, and developers — designed for{" "}
-          <span className="text-white font-semibold">uptime</span>, not just
-          approval. Projects delivered on{" "}
-          <span className="text-white font-semibold">stamped schedule</span>.
+          Aarbitech Energy provides solar design, structural engineering, permit
+          packages, and consultancy services for EPC companies across{" "}
+          <span className="text-white font-semibold">India, USA, Australia</span>{" "}
+          and{" "}
+          <span className="text-white font-semibold">Ireland</span>.
         </p>
 
         {/* CTA */}
         <div ref={ctaRef} className="mt-10 flex gap-4 justify-center flex-wrap">
-          <motion.a
-            href="#contact"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(91,47,201,0.3)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-white text-purple-700 font-semibold rounded-lg text-lg shadow-lg shadow-white/20 hover:bg-gray-100 transition-all"
-          >
-            Request a Consultation →
-          </motion.a>
+          <Link href="/contact">
+            <motion.span
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(91,47,201,0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg text-lg shadow-lg shadow-white/20 hover:bg-gray-100 transition-all"
+            >
+              Request a Consultation →
+            </motion.span>
+          </Link>
           <motion.a
             href="#services"
             whileHover={{ scale: 1.05 }}
@@ -160,13 +163,14 @@ export default function Hero() {
         {/* Stats */}
         <div
           ref={statsRef}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 max-w-4xl mx-auto"
+          className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto"
         >
           {[
-            { value: "240+", label: "Projects Engineered" },
-            { value: "18", label: "States Active" },
-            { value: "100%", label: "On-Schedule Delivery" },
-            { value: "96%", label: "Project Readiness" },
+            { value: "10+", label: "MW Designed" },
+            { value: "1500+", label: "Projects Delivered" },
+            { value: "500+", label: "Satisfied Customers" },
+            { value: "2023", label: "Established" },
+            { value: "20+", label: "Core Team Members" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-2xl md:text-3xl font-bold text-white">
@@ -188,7 +192,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-px h-10 bg-gradient-to-b from-purple-500/50 to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-blue-500/50 to-transparent"
         />
       </div>
     </section>

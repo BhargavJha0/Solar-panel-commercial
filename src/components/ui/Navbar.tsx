@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
   { name: "Capabilities", href: "#services" },
@@ -27,13 +28,9 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm"
-          : ""
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center">
           <Image
@@ -52,7 +49,7 @@ export default function Navbar() {
             <motion.a
               key={link.name}
               href={link.href}
-              className="text-gray-600 hover:text-purple-700 transition-colors text-sm font-medium"
+              className="text-gray-600 hover:text-blue-700 transition-colors text-sm font-medium"
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -63,20 +60,15 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="#contact"
-            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Sign In
-          </a>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 bg-purple-700 text-white text-sm font-semibold rounded-lg hover:bg-purple-800 hover:shadow-lg hover:shadow-purple-500/25 transition-all"
-          >
-            Request a Consultation
-          </motion.a>
+          <Link href="/contact">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-6 py-2.5 bg-blue-700 text-white text-sm font-semibold rounded-lg hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+            >
+              Request a Consultation
+            </motion.span>
+          </Link>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -113,18 +105,19 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block text-gray-600 hover:text-purple-700 transition-colors text-lg"
+                  className="block text-gray-600 hover:text-blue-700 transition-colors text-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="block mt-4 px-6 py-3 bg-purple-700 text-white font-semibold rounded-lg text-center hover:bg-purple-800 transition-colors"
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="block mt-4 px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg text-center hover:bg-blue-800 transition-colors"
               >
                 Get a Quote
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
