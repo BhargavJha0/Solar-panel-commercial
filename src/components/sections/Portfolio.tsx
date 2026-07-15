@@ -1,7 +1,16 @@
 "use client";
 
-import { useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import projectImg1 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.18.43.jpeg";
+import projectImg2 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.18.45.jpeg";
+import projectImg3 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.26 (1).jpeg";
+import projectImg4 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.26.jpeg";
+import projectImg5 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.32.jpeg";
+import projectImg6 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.35.jpeg";
+import projectImg7 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.43.jpeg";
+import projectImg8 from "../../../assets/projects-images/WhatsApp Image 2026-07-03 at 11.31.45.jpeg";
 
 const categories = [
   {
@@ -13,6 +22,7 @@ const categories = [
     border: "border-blue-200",
     tag: "bg-blue-100 text-blue-700",
     accent: "text-blue-600",
+    gallery: [projectImg1, projectImg2, projectImg3, projectImg4],
     projects: [
       { name: "DS Group Headquarters", capacity: "315 kW" },
       { name: "DS Group Flavoured", capacity: "205 kW" },
@@ -37,6 +47,7 @@ const categories = [
     border: "border-emerald-200",
     tag: "bg-emerald-100 text-emerald-700",
     accent: "text-emerald-600",
+    gallery: [projectImg5, projectImg6, projectImg7, projectImg8],
     projects: [
       { name: "GD Goenka School", capacity: "450 kW" },
       { name: "Bloom Healthcare", capacity: "150 kW" },
@@ -53,6 +64,17 @@ const categories = [
 
 export default function Portfolio() {
   const ref = useRef(null);
+  const [activeImageIndexes, setActiveImageIndexes] = useState([0, 0]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImageIndexes((prev) =>
+        categories.map((cat, index) => (prev[index] + 1) % cat.gallery.length)
+      );
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="portfolio" className="relative py-28 px-6">
@@ -116,6 +138,60 @@ export default function Portfolio() {
                 </div>
                 <div className={`mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold`}>
                   {cat.projects.length} Projects
+                </div>
+              </div>
+
+              {/* Rotating project gallery */}
+              <div className="px-7 pt-6">
+                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-gray-200 bg-gray-100">
+                  <motion.div
+                    key={`${ci}-${activeImageIndexes[ci]}`}
+                    initial={{ opacity: 0.15, scale: 1.03 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.65, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={cat.gallery[activeImageIndexes[ci]]}
+                      alt={`${cat.title} project ${activeImageIndexes[ci] + 1}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={ci === 0}
+                    />
+                  </motion.div>
+
+                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <span className="text-white text-xs font-semibold truncate">
+                      {cat.projects[activeImageIndexes[ci] % cat.projects.length].name}
+                    </span>
+                    <span className="shrink-0 rounded-full bg-white/85 px-2 py-1 text-[11px] font-bold text-gray-900">
+                      {activeImageIndexes[ci] + 1}/{cat.gallery.length}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="mt-3 flex items-center justify-center gap-2">
+                  {cat.gallery.map((_, gi) => (
+                    <button
+                      key={gi}
+                      type="button"
+                      onClick={() =>
+                        setActiveImageIndexes((prev) => {
+                          const next = [...prev];
+                          next[ci] = gi;
+                          return next;
+                        })
+                      }
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        gi === activeImageIndexes[ci]
+                          ? `${cat.accent.replace("text-", "bg-")} w-7`
+                          : "bg-gray-300 w-2.5 hover:bg-gray-400"
+                      }`}
+                      aria-label={`Show image ${gi + 1} for ${cat.title}`}
+                    />
+                  ))}
                 </div>
               </div>
 
