@@ -1,8 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+
 const SALES_EMAIL = "sales@aarbitechenergy.com";
 const INFO_EMAIL = "info@aarbitechenergy.com";
+
+const REQUIRED_SMTP_ENV = [
+  "SMTP_HOST",
+  "SMTP_USER",
+  "SMTP_PASS",
+] as const;
+
+function getMissingSmtpEnv() {
+  return REQUIRED_SMTP_ENV.filter((key) => !process.env[key] || process.env[key]?.trim() === "");
+}
+
+function sanitizeHeaderValue(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
 function buildEmailHtml(data: {
   name: string;
@@ -139,19 +159,54 @@ function buildEmailHtml(data: {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, company, email, phone, projectType, message, consultationType } = body;
+    const {
+      name,
+      company = "",
+      email,
+      phone = "",
+      projectType = "",
+      message,
+      consultationType,
+    } = body ?? {};
 
     // Basic validation
     if (!name || !email || !message || !consultationType) {
       return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
     }
 
+    if (consultationType !== "sales" && consultationType !== "info") {
+      return NextResponse.json({ error: "Invalid consultation type." }, { status: 400 });
+    }
+
+    if (!isValidEmail(String(email))) {
+      return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
+    }
+
+    const missingEnv = getMissingSmtpEnv();
+    if (missingEnv.length > 0) {
+      console.error("[contact API] Missing SMTP env vars", missingEnv);
+      return NextResponse.json(
+        {
+          error:
+            "Email service is not configured yet. Please set SMTP environment variables and redeploy.",
+        },
+        { status: 503 }
+      );
+    }
+
     const toEmail = consultationType === "sales" ? SALES_EMAIL : INFO_EMAIL;
+    const smtpPort = Number(process.env.SMTP_PORT) || 587;
+    const smtpSecure =
+      process.env.SMTP_SECURE?.toLowerCase() === "true" ||
+      (process.env.SMTP_SECURE == null && smtpPort === 465);
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === "true",
+      port: smtpPort,
+      secure: smtpSecure,
+      connectionTimeout: 15000,
+      greetingTimeout: 15000,
+      socketTimeout: 20000,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -161,17 +216,33 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: `"Aarbitech Energy Website" <${process.env.SMTP_USER}>`,
       to: toEmail,
-      replyTo: email,
-      subject: `New ${consultationType === "sales" ? "Sales Inquiry" : "Information Request"} from ${name}`,
-      html: buildEmailHtml({ name, company, email, phone, projectType, message, consultationType }),
+      replyTo: sanitizeHeaderValue(String(email)),
+      subject: `New ${consultationType === "sales" ? "Sales Inquiry" : "Information Request"} from ${sanitizeHeaderValue(String(name))}`,
+      html: buildEmailHtml({
+        name: String(name).trim(),
+        company: String(company).trim(),
+        email: String(email).trim(),
+        phone: String(phone).trim(),
+        projectType: String(projectType).trim(),
+        message: String(message).trim(),
+        consultationType,
+      }),
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
-    console.error("[contact API]", err);
-    return NextResponse.json(
-      { error: "Failed to send email. Please try again or contact us directly." },
-      { status: 500 }
-    );
+    const error = err as {
+      code?: string;
+      message?: string;
+      response?: string;
+      responseCode?: number;
+    };
+    console.error("[contact API] send failed", {
+      code: error?.code,
+      message: error?.message,
+      responseCode: error?.responseCode,
+      response: error?.response,
+    });
+    return NextResponse.json({ error: "Failed to send email. Please try again or contact us directly." }, { status: 500 });
   }
 }
