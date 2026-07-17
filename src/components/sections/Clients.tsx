@@ -53,7 +53,7 @@ export default function Clients() {
         gsap.to(marquee, {
           xPercent: -50,
           ease: "none",
-          duration: 30,
+          duration: 20,
           repeat: -1,
         });
       }

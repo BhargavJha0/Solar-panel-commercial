@@ -140,13 +140,13 @@ export default function Testimonials() {
           transition={{ delay: 0.4 }}
           className="mt-16 pt-12 border-t border-gray-200"
         >
-          <p className="text-center text-xs text-gray-400 uppercase tracking-widest mb-6">
+          <p className="text-center text-xs text-blue-600 uppercase tracking-widest font-bold mb-6">
             Trusted by companies across India, USA, Australia &amp; Ireland
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-40">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {["Rinova Solar Power", "DS Group", "GD Goenka School", "Country Delight", "Indo Nuclear Energy", "Bloom Healthcare"].map(
               (name, i) => (
-                <span key={i} className="text-sm md:text-base font-semibold text-gray-400">
+                <span key={i} className="text-sm md:text-base font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-200">
                   {name}
                 </span>
               )

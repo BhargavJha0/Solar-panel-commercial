@@ -33,7 +33,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="relative pt-20 pb-8 px-6 border-t border-gray-200 bg-[#1A0A3E]">
+    <footer id="contact" className="relative pt-20 pb-8 px-6 border-t border-gray-200 bg-[#1A0A3E]">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0F0622] to-transparent" />
 

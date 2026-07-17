@@ -57,7 +57,7 @@ const categories = [
       { name: "Amicare", capacity: "40 kW" },
       { name: "Butterfly School", capacity: "30 kW" },
       { name: "Glorious Educational Society", capacity: "20 kW" },
-      { name: "Aryadeep Public School", capacity: "—" },
+      { name: "Aryadeep Public School", capacity: "15 kW" },
     ],
   },
 ];
