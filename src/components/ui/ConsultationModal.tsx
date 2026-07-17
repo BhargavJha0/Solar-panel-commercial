@@ -144,7 +144,7 @@ export default function ConsultationModal() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ type: "spring", stiffness: 320, damping: 32 }}
-            className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="relative flex w-full max-w-xl max-h-[calc(100dvh-2rem)] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-700 to-blue-900">
@@ -200,7 +200,11 @@ export default function ConsultationModal() {
 
             {/* Form */}
             {status !== "success" && (
-              <form onSubmit={handleSubmit} className="px-6 py-5 space-y-4">
+              <form
+                data-lenis-prevent
+                onSubmit={handleSubmit}
+                className="min-h-0 overflow-y-auto overscroll-contain px-6 py-5 space-y-4"
+              >
 
                 {/* Type selector */}
                 <div>

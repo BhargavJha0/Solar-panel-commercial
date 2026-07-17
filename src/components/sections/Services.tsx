@@ -279,7 +279,10 @@ export default function Services() {
               </div>
 
               {/* Scrollable body */}
-              <div className="overflow-y-auto flex-1 px-7 py-6 md:px-9 md:py-7 space-y-6">
+              <div
+                data-lenis-prevent
+                className="flex-1 overflow-y-auto overscroll-contain px-7 py-6 space-y-6 md:px-9 md:py-7"
+              >
 
                 {/* Overview */}
                 <motion.p
