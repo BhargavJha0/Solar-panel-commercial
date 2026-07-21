@@ -24,18 +24,18 @@ const categories = [
     accent: "text-blue-600",
     gallery: [projectImg1, projectImg2, projectImg3, projectImg4],
     projects: [
-      { name: "DS Group Headquarters", capacity: "315 kW" },
-      { name: "DS Group Flavoured", capacity: "205 kW" },
-      { name: "Country Delight", capacity: "200 kW" },
-      { name: "Indo Nuclear Energy", capacity: "200 kW" },
-      { name: "Gurind India", capacity: "190 kW" },
-      { name: "Chittagarh Resorts", capacity: "160 kW" },
-      { name: "MR Floor Mills", capacity: "150 kW" },
-      { name: "Mira Exim", capacity: "150 kW" },
-      { name: "MK Enterprises", capacity: "100 kW" },
-      { name: "Classic Rubtech Pvt Ltd", capacity: "70 kW" },
-      { name: "SRB Group", capacity: "70 kW" },
-      { name: "Pearl Pressision", capacity: "50 kW" },
+      { name: "DS Group Headquarters", capacity: "315 kW", projectType: "Commercial Project", location: "Noida Sector 67" },
+      { name: "DS Group Flavoured", capacity: "205 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Country Delight", capacity: "200 kW", projectType: "Commercial Project", location: "Gurugram, Haryana" },
+      { name: "Indo Nuclear Energy", capacity: "200 kW", projectType: "Commercial Project", location: "Satna, MP" },
+      { name: "Gurind India", capacity: "190 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Chittagarh Resort", capacity: "160 kW", projectType: "Commercial Project", location: "Rajasthan" },
+      { name: "MR Floor Mills", capacity: "150 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Mira Exim", capacity: "150 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "MK Enterprises", capacity: "100 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Classic Rubtech Pvt Ltd", capacity: "70 kW", projectType: "Commercial Project", location: "Okhla, Delhi" },
+      { name: "SRB Group", capacity: "70 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Pearl Pressision", capacity: "50 kW", projectType: "Commercial Project", location: "Greater Noida" },
     ],
   },
   {
@@ -49,15 +49,15 @@ const categories = [
     accent: "text-emerald-600",
     gallery: [projectImg5, projectImg6, projectImg7, projectImg8],
     projects: [
-      { name: "GD Goenka School", capacity: "450 kW" },
-      { name: "Bloom Healthcare", capacity: "150 kW" },
-      { name: "Accurate College", capacity: "50 kW" },
-      { name: "Dayanand Public School", capacity: "50 kW" },
-      { name: "SR Capital Public School", capacity: "34 kW" },
-      { name: "Amicare", capacity: "40 kW" },
-      { name: "Butterfly School", capacity: "30 kW" },
-      { name: "Glorious Educational Society", capacity: "20 kW" },
-      { name: "Aryadeep Public School", capacity: "15 kW" },
+      { name: "GD Goenka School", capacity: "450 kW", projectType: "Commercial Project", location: "Model Town, Delhi" },
+      { name: "Bloom Healthcare", capacity: "150 kW", projectType: "Commercial Project", location: "Noida, UP" },
+      { name: "Accurate College", capacity: "50 kW", projectType: "Commercial Project", location: "Greater Noida" },
+      { name: "Dayanand Public School", capacity: "50 kW", projectType: "Commercial Project", location: "Model Town, Delhi" },
+      { name: "SR Capital Public School", capacity: "34 kW", projectType: "Commercial Project", location: "Delhi" },
+      { name: "Amicare", capacity: "40 kW", projectType: "Commercial Project (Hospital)", location: "Ghaziabad, UP" },
+      { name: "Butterfly School", capacity: "30 kW", projectType: "Commercial Project", location: "Nagloyi" },
+      { name: "Glorious Educational Society", capacity: "20 kW", projectType: "Commercial Project (Society)", location: "New Delhi" },
+      { name: "Aryadeep Public School", capacity: "15 kW", projectType: "Commercial Project", location: "Greater Noida, UP" },
     ],
   },
 ];
@@ -205,13 +205,19 @@ export default function Portfolio() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: ci * 0.1 + pi * 0.05 }}
-                      className={`flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl ${cat.bg} border ${cat.border}`}
+                      tabIndex={0}
+                      aria-label={`${p.name}: ${p.capacity}, ${p.projectType}, ${p.location}`}
+                      className={`group relative flex h-[42px] items-center justify-between gap-2 overflow-hidden rounded-xl border px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-offset-2 ${cat.bg} ${cat.border} ${cat.accent.replace("text-", "focus:ring-")}`}
                     >
-                      <div className="flex items-center gap-2 min-w-0">
+                      <div className="flex min-w-0 items-center gap-2 transition-opacity duration-200 group-hover:opacity-0 group-focus:opacity-0">
                         <span className={`shrink-0 w-1.5 h-1.5 rounded-full ${cat.accent.replace("text-", "bg-")}`} />
                         <span className="text-xs font-semibold text-gray-800 truncate">{p.name}</span>
                       </div>
-                      <span className={`shrink-0 text-xs font-black ${cat.accent}`}>{p.capacity}</span>
+                      <span className={`shrink-0 text-xs font-black transition-opacity duration-200 group-hover:opacity-0 group-focus:opacity-0 ${cat.accent}`}>{p.capacity}</span>
+                      <div className="pointer-events-none absolute inset-0 flex flex-col justify-center px-3.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus:opacity-100">
+                        <p className="truncate text-xs font-black text-gray-900">{p.name} <span className={cat.accent}>{p.capacity}</span></p>
+                        <p className="truncate text-[10px] font-semibold text-gray-600">{p.projectType} · {p.location}</p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
