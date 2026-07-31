@@ -1,35 +1,59 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const footerLinks = {
-  services: [
-    { name: "Structural Engineering", href: "#" },
-    { name: "Process & Mechanical", href: "#" },
-    { name: "Permitting & Compliance", href: "#" },
-    { name: "Site Assessment", href: "#" },
-    { name: "Interconnection", href: "#" },
-    { name: "Construction Support", href: "#" },
-    { name: "Energy Storage", href: "#" },
-    { name: "Substation Design", href: "#" },
-  ],
-  company: [
-    { name: "About Us", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Insights", href: "#" },
-    { name: "Case Studies", href: "#" },
-    { name: "Data Security", href: "#" },
-    { name: "Partner Program", href: "#" },
-  ],
-  resources: [
-    { name: "Client Portal", href: "#" },
-    { name: "Engineering Standards", href: "#" },
-    { name: "Code Compliance", href: "#" },
-    { name: "FAQs", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms & Conditions", href: "#" },
-  ],
-};
+const projectGroups = [
+  {
+    title: "Commercial & Industrial",
+    projects: [
+      "DS Group Headquarters",
+      "DS Group Flavoured",
+      "Country Delight",
+      "Indo Nuclear Energy",
+      "Gurind India",
+      "Chittagarh Resort",
+      "MR Floor Mills",
+      "Mira Exim",
+      "MK Enterprises",
+      "Classic Rubtech Pvt Ltd",
+      "SRB Group",
+      "Pearl Pressision",
+    ],
+  },
+  {
+    title: "Educational & Medical",
+    projects: [
+      "GD Goenka School",
+      "Bloom Healthcare",
+      "Accurate College",
+      "Dayanand Public School",
+      "SR Capital Public School",
+      "Amicare",
+      "Butterfly School",
+      "Glorious Educational Society",
+      "Aryadeep Public School",
+    ],
+  },
+];
+
+const companyLinks = [
+  { name: "About Us", href: "/#about" },
+  { name: "Careers", href: "/contact" },
+  { name: "Insights", href: "/#portfolio" },
+  { name: "Case Studies", href: "/#portfolio" },
+  { name: "Data Security", href: "/#why-us" },
+  { name: "Partner Program", href: "/contact" },
+];
+
+const resourceLinks = [
+  { name: "Client Portal", href: "/contact" },
+  { name: "Engineering Standards", href: "/#process" },
+  { name: "Code Compliance", href: "/#services" },
+  { name: "FAQs", href: "/#faq" },
+  { name: "Privacy Policy", href: "/contact" },
+  { name: "Terms & Conditions", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -39,7 +63,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto relative">
         {/* Main footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
             <motion.div
@@ -88,58 +112,57 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-sm uppercase tracking-widest text-white font-semibold mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {projectGroups.map((group) => (
+            <div key={group.title}>
+              <h4 className="text-sm uppercase tracking-widest text-white font-semibold mb-4">
+                {group.title}
+              </h4>
+              <ul className="space-y-2.5">
+                {group.projects.map((project) => (
+                  <li key={project}>
+                    <Link
+                      href="/#portfolio"
+                      className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      {project}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-          {/* Company */}
           <div>
             <h4 className="text-sm uppercase tracking-widest text-white font-semibold mb-4">
               Company
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.company.map((link) => (
+              {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources */}
           <div>
             <h4 className="text-sm uppercase tracking-widest text-white font-semibold mb-4">
               Resources
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.resources.map((link) => (
+              {resourceLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-400 hover:text-blue-400 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

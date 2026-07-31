@@ -20,6 +20,27 @@ const testimonials = [
     company: "DS Group",
     rating: 5,
   },
+  {
+    quote:
+      "Aarbitech Energy's engineering team delivered permit-ready designs with exceptional accuracy. Our approvals were faster, and revisions were minimal. Truly reliable partners for solar projects.",
+    name: "Project Manager",
+    role: "Solar EPC",
+    rating: 5,
+  },
+  {
+    quote:
+      "From design review to compliance support, Aarbitech Energy handled everything seamlessly. Their technical expertise helped us move projects forward without delays.",
+    name: "Operations Head",
+    role: "Renewable Energy Firm",
+    rating: 5,
+  },
+  {
+    quote:
+      "What sets Aarbitech Energy apart is their attention to detail and deep understanding of regulations. Their support gave us complete confidence during approvals and execution.",
+    name: "Solar Developer",
+    role: "Solar Development",
+    rating: 5,
+  },
 ];
 
 export default function Testimonials() {
@@ -95,8 +116,10 @@ export default function Testimonials() {
                     {testimonials[active].name}
                   </p>
                   <p className="text-sm text-gray-500">
-                    {testimonials[active].role} &bull;{" "}
-                    {testimonials[active].company}
+                    {testimonials[active].role}
+                    {testimonials[active].company && (
+                      <> &bull; {testimonials[active].company}</>
+                    )}
                   </p>
                 </div>
                 {/* Stars */}

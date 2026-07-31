@@ -87,7 +87,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="relative py-28 px-6">
+    <section id="faq" className="relative py-28 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
